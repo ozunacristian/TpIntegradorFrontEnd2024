@@ -1,0 +1,28 @@
+/*Propiedad para resetear valores por defecto del navegador*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 2px solid rgb(255, 0, 212); /* Para delinear los elementos (eliminar antes de entrega)*/
+}
+
+/* custom property's*/
+:root {
+  --dark-gray: hsl(0, 0%, 63%);
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  --very-dark-gray: hsl(0, 0%, 27%);
+
+}
+
+/* 
+mobile-fisrt-approach <-- iniciamos creando para pantallas mobile
+luego se irán agregando las propiedades para pantallas Desktop.
+ */
+body {
+  font-size: 12px;
+}
+
+/* Propiedades para pantallas de 1440px o más (Desktop) */
+@media (min-width: 1440px) {
+}
