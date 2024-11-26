@@ -1,9 +1,7 @@
-/*Propiedad para resetear valores por defecto del navegador*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: 2px solid rgb(255, 0, 212); /* Para delinear los elementos (eliminar antes de entrega)*/
 }
 
 /* custom property's*/
@@ -15,14 +13,219 @@
 
 }
 
-/* 
-mobile-fisrt-approach <-- iniciamos creando para pantallas mobile
-luego se irán agregando las propiedades para pantallas Desktop.
- */
 body {
-  font-size: 12px;
+  font-family: 'League Spartan', sans-serif;
+  min-height: 100vh;
 }
 
-/* Propiedades para pantallas de 1440px o más (Desktop) */
-@media (min-width: 1440px) {
+.contenedor-raiz {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+}
+
+/* Header y Navegación */
+header {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+  gap: 3rem;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.logo {
+  margin-right: 2rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Contenedor Hero */
+.contenedor-hero {
+  grid-column: 1 / 5;
+  position: relative;
+}
+
+.contenedor-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contenedor-descripcion-hero {
+  grid-column: 5 / 8;
+  padding: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.contenedor-descripcion-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: hsl(0, 0%, 0%);
+}
+
+.contenedor-descripcion-hero p {
+  color: hsl(0, 0%, 63%);
+  line-height: 1.5;
+}
+
+.contenedor-boton-shop {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  cursor: pointer;
+}
+
+.contenedor-boton-shop button {
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.contenedor-boton-shop:hover button {
+  color: hsl(0, 0%, 63%);
+}
+
+/* Botones de navegación hero */
+.contenedor-botones-hero {
+  position: absolute;
+  bottom: 0;
+  right: -156px; /* Se desbordan los botones del contenedor hero*/
+  display: flex;
+}
+
+.boton-left,
+.boton-rigth {
+  background-color: black;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boton-left:hover,
+.boton-rigth:hover {
+  background-color: hsl(0, 0%, 27%);
+}
+
+/* Footer */
+footer {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+}
+
+.about-oscuro img,
+.about-claro img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-descripcion {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.about-descripcion h1 {
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
+}
+
+.about-descripcion p {
+  color: hsl(0, 0%, 63%);
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  header {
+    grid-template-columns: 1fr;
+  }
+
+  .contenedor-hero {
+    grid-column: 1 / -1;
+  }
+
+  .contenedor-descripcion-hero {
+    grid-column: 1 / -1;
+    padding: 3rem;
+  }
+
+  nav {
+    padding: 2rem;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .contenedor-botones-hero {
+    right: 0;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+  }
+
+  .about-descripcion {
+    padding: 2rem;
+  }
 }
