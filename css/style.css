@@ -18,9 +18,14 @@ body {
 }
 
 .contenedor-raiz {
+  /*display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;*/
+  
   display: grid;
   grid-template-rows: 1fr auto;
-  min-height: 100vh;
+  align-items: center;
+  justify-items: center;
 }
 
 /* Header y Navegación */
